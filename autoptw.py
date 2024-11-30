@@ -22,9 +22,10 @@ status=soup.find_all("span",class_="content-status")
 dims=dados[::2]
 dtls=dados[1::2]
 dlnk=[""]*len(dtls)
-for i in range(len(dtls)):dlnk[i]="myanimelist.net"+dtls[i].get("href")
-for i in range(len(dtls)):dtls[i]=dtls[i].get_text()
-for i in range(len(dtls)):dims[i]=dims[i].find("img").get("src")
+for i in range(len(dtls)):
+    dlnk[i]="myanimelist.net"+dtls[i].get("href")
+    dtls[i]=dtls[i].get_text()
+    dims[i]=dims[i].find("img").get("src")
 for i in range(len(status)):
     status[i]=status[i].get_text()
     status[i]=status[i].replace('\n',' ').strip()
